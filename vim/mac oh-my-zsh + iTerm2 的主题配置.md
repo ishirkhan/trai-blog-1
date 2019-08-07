@@ -43,7 +43,7 @@ DEFAULT_USER="$USER"	# 缩短前缀
 
 ## Plugins
 
-语法高亮：
+**语法高亮**
 
 ```shell
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -51,7 +51,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 plugins=( [plugins...] zsh-syntax-highlighting)
 ```
 
-自动补全 ( 到官网下载 ) ：https://mimosa-pudica.net/zsh-incremental.html
+**自动补全 ( 到官网下载 ) ：https://mimosa-pudica.net/zsh-incremental.html**
 
 ```shell
 # 在 ~/.oh-my-zsh/custom/plugins 文件夹中创建一个名为 incr 的目录（为了方便管理），
@@ -60,7 +60,7 @@ cd cd .oh-my-zsh/custom/plugins/incr
 source incr * .zsh
 ```
 
-自动建议：
+**自动建议**
 
 ```shell
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -68,7 +68,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 plugins=(zsh-autosuggestions)
 ```
 
-z ( 快速访问目录 ) 插件：
+> 注意：看不到建议是因为的主题背景颜色和建议文字颜色完美的重合了，在 iTerm 偏好设置：Profiles → Colors → Bright → Black (405870)。
+
+**z ( 快速访问目录 ) 插件**
 
 ```shell
 plugins=(z)
