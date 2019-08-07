@@ -68,7 +68,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 plugins=(zsh-autosuggestions)
 ```
 
-> 注意：看不到建议是因为的主题背景颜色和建议文字颜色完美的重合了，在 iTerm 偏好设置：Profiles → Colors → Bright → Black (405870)。
+> 请打开 iTerm2 偏好设置：Profiles → Colors → ANSI Colors → Bright → Black (405870)，以看清建议文字的颜色。
 
 **z ( 快速访问目录 ) 插件**
 
