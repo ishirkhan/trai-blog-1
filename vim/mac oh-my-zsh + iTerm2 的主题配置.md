@@ -1,4 +1,4 @@
-# Oh My Zsh + iTerm2
+# mac oh-my-zsh + iTerm2
 
 ## Install
 
