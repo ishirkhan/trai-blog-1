@@ -4,13 +4,13 @@
 
 **[iTerm2](https://iterm2.com/downloads/stable/latest)**
 
+**[Git](https://git-scm.com/download/mac)**
+
 **Homebrew**
 
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-
-**[Git](https://git-scm.com/download/mac) 或者 `brew install git`**
 
 **Oh My Zsh**
 
