@@ -22,7 +22,7 @@ cd fonts
 
 ## Configuration
 
-打开 iTerm2 偏好设置 ( `command + ,` ) 中的 **Profiles** 菜单：
+打开 iTerm2 偏好设置 ( `command + ,` ) 中的 **Profiles** 选项：
 
 **Text → Font** : 选择 <u>Meslo LG S for Powerline</u> ；
 
@@ -31,7 +31,7 @@ cd fonts
 编辑 *~/.zshrc* 文件：
 
 ```shell
-ZSH_THEME="agnoster"	# 使用主题 agnoster
+ZSH_THEME="agnoster"	# 使用主题
 DEFAULT_USER="$USER"	# 缩短前缀
 ```
 
@@ -42,7 +42,7 @@ DEFAULT_USER="$USER"	# 缩短前缀
 ```shell
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-plugins=( [plugins...] zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting)
 ```
 
 **自动补全 ( 到官网下载 ) ：https://mimosa-pudica.net/zsh-incremental.html**
@@ -50,7 +50,7 @@ plugins=( [plugins...] zsh-syntax-highlighting)
 ```shell
 # 在 ~/.oh-my-zsh/custom/plugins 文件夹中创建一个名为 incr 的目录（为了方便管理），
 # 将下载好的文件拷贝进去，执行：
-cd cd .oh-my-zsh/custom/plugins/incr
+cd .oh-my-zsh/custom/plugins/incr
 source incr * .zsh
 ```
 
