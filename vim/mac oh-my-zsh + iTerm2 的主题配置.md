@@ -2,29 +2,33 @@
 
 ## Install
 
-安装 iTerm2：https://iterm2.com/downloads/stable/latest
+- **[iTerm2](https://iterm2.com/downloads/stable/latest)**
 
-安装 Homebrew :
+- **Homebrew**
 
-```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+  ```shell
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 
-安装 Git : `brew install git` 
+- **[Git](https://git-scm.com/download/mac)**
 
-安装 Oh My Zsh :
+  ```shell
+  brew install git
+  ```
 
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
+- **Oh My Zsh**
 
-安装 powerline 字体：
+  ```shell
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  ```
 
-```shell
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-```
+- **powerline 字体**
+
+  ```shell
+  git clone https://github.com/powerline/fonts.git --depth=1
+  cd fonts
+  ./install.sh
+  ```
 
 ## Configuration
 
