@@ -24,7 +24,7 @@ cd fonts
 
 打开 iTerm2 偏好设置 ( `command + ,` ) 中的 **Profiles** 菜单：
 
-**General** → **Font** : 选择 <u>Meslo LG S for Powerline</u> ；
+**Text → Font** : 选择 <u>Meslo LG S for Powerline</u> ；
 
 **Colors** → **Color presets...** : 选择 *Solarized Dark* 。
 
