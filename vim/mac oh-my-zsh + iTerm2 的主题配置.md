@@ -2,33 +2,33 @@
 
 ## Install
 
-- **[iTerm2](https://iterm2.com/downloads/stable/latest)**
+**[iTerm2](https://iterm2.com/downloads/stable/latest)**
 
-- **Homebrew**
+**Homebrew**
 
-  ```shell
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  ```
+```shell
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-- **[Git](https://git-scm.com/download/mac)**
+**[Git](https://git-scm.com/download/mac)**
 
-  ```shell
-  brew install git
-  ```
+```shell
+brew install git
+```
 
-- **Oh My Zsh**
+**Oh My Zsh**
 
-  ```shell
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  ```
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
-- **powerline 字体**
+**powerline 字体**
 
-  ```shell
-  git clone https://github.com/powerline/fonts.git --depth=1
-  cd fonts
-  ./install.sh
-  ```
+```shell
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+```
 
 ## Configuration
 
