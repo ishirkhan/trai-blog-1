@@ -10,7 +10,7 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-**[Git](https://git-scm.com/download/mac)**
+**[Git](https://git-scm.com/download/mac) 或者 `brew install git`**
 
 ```shell
 brew install git
