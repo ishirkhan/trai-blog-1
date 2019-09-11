@@ -6,12 +6,6 @@
 
 **[Git](https://git-scm.com/download/mac)**
 
-**Homebrew**
-
-```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
 **Oh My Zsh**
 
 ```shell
