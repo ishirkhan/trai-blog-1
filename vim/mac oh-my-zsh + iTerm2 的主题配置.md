@@ -51,7 +51,7 @@ plugins=(zsh-syntax-highlighting)
 # 在 ~/.oh-my-zsh/custom/plugins 文件夹中创建一个名为 incr 的目录（为了方便管理），
 # 将下载好的文件拷贝进去，执行：
 cd .oh-my-zsh/custom/plugins/incr
-source incr * .zsh
+source incr*.zsh
 ```
 
 **自动建议**
