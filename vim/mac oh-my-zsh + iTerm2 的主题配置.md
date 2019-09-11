@@ -12,10 +12,6 @@
 
 **[Git](https://git-scm.com/download/mac) 或者 `brew install git`**
 
-```shell
-brew install git
-```
-
 **Oh My Zsh**
 
 ```shell
