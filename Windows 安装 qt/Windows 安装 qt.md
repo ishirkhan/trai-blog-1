@@ -29,7 +29,7 @@ D:\qtenv64\bin
 
 安装 [MSYS2](http://www.msys2.org/) 后替换源 ( 打开 _C:\msys64\etc\pacman.d_ 分别将 3 个 **源文件的内容** 替换为对应的 **[源文件内容](https://mirrors.tuna.tsinghua.edu.cn/help/msys2/)** ) 。
 
-重新打开 MSYS2 ( 路径为根目录下的 _msys2_shell_ ，也可以从菜单栏打开 **MSYS2 MSYS** ) 更新软件包：`pacman -Syuu` ( **重复执行此命令直到提示没有任何更新** ) 。
+重新打开 MSYS2 ( 路径为根目录下的 _msys2_shell_ ，也可以从开始菜单打开 **MSYS2 MSYS** ) 更新软件包：`pacman -Syuu` ( **重复执行此命令直到提示没有任何更新** ) 。
 
 如出现如下提示，关闭窗口，重新打开执行：`pacman -Syuu`
 
