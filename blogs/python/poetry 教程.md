@@ -32,9 +32,35 @@ poetry self update
 poetry new poetry-demo
 ```
 
-初始化预先存在的项目：
+#### 初始化预先存在的项目
 
 ```shell
 cd pre-existing-project
 poetry init
+```
+
+#### 指定依赖项
+
+```shell
+poetry add pendulum
+```
+
+#### 使用虚拟环境
+
+使用 `poetry run` :
+
+```shell
+poetry run python your_script.py
+```
+
+激活虚拟环境：
+
+```shell
+poetry shell
+```
+
+#### 安装依赖项
+
+```shell
+poetry install
 ```
