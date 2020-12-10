@@ -21,3 +21,20 @@ poetry --version
 ```shell
 poetry self update
 ```
+
+## 基本用法
+
+### 项目设置
+
+创建新的项目：
+
+```shell
+poetry new poetry-demo
+```
+
+初始化预先存在的项目：
+
+```shell
+cd pre-existing-project
+poetry init
+```
