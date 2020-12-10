@@ -13,12 +13,9 @@
 最后，打开一个新的 shell 并输入以下内容：
 
 ```shell
+# 检查版本
 poetry --version
-```
-
-## 更新
-
-```shell
+# 更新
 poetry self update
 ```
 
