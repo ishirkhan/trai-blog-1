@@ -13,10 +13,8 @@
 最后，打开一个新的 shell 并输入以下内容：
 
 ```shell
-# 检查版本
-poetry --version
-# 更新
-poetry self update
+poetry --version   # 检查版本
+poetry self update # 更新
 ```
 
 ## 基本用法
@@ -43,10 +41,8 @@ poetry add pendulum
 使用虚拟环境：
 
 ```shell
-# 使用 poetry run
-poetry run python your_script.py
-# 激活虚拟环境
-poetry shell
+poetry run python your_script.py # 使用 poetry run
+poetry shell # 激活虚拟环境
 # 要获得虚拟环境的路径，请运行 `poenry env info --path`。
 ```
 
