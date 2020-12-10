@@ -43,7 +43,7 @@ poetry add pendulum
 ```shell
 poetry run python your_script.py # 使用 poetry run
 poetry shell # 激活虚拟环境
-# 要获得虚拟环境的路径，请运行 `poenry env info --path`。
+# 要获得虚拟环境的路径，请运行 `poetry env info --path`。
 ```
 
 安装依赖项：
