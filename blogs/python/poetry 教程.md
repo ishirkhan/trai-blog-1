@@ -47,10 +47,14 @@ poetry add pendulum
 poetry run python your_script.py
 # 激活虚拟环境
 poetry shell
+# 要获得虚拟环境的路径，请运行 `poenry env info --path`。
 ```
 
 安装依赖项：
 
 ```shell
 poetry install
+# 默认情况下，当前项目以可编辑模式安装。
+# 如果只想安装依赖项，请使用 `--no-root` 标志运行 `install` 命令：
+poetry install --no-root
 ```
