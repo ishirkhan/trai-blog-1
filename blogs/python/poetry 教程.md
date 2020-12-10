@@ -54,3 +54,9 @@ poetry install
 # 如果只想安装依赖项，请使用 `--no-root` 标志运行 `install` 命令：
 poetry install --no-root
 ```
+
+更新依赖项：
+
+```shell
+poetry update
+```
