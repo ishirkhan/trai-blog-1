@@ -24,42 +24,37 @@ poetry self update
 
 ## 基本用法
 
-### 项目设置
-
-创建新的项目：
+创建新的项目
 
 ```shell
 poetry new poetry-demo
 ```
 
-#### 初始化预先存在的项目
+初始化预先存在的项目
 
 ```shell
 cd pre-existing-project
 poetry init
 ```
 
-#### 指定依赖项
+指定依赖项
 
 ```shell
 poetry add pendulum
 ```
 
-#### 使用虚拟环境
+使用虚拟环境
 
 使用 `poetry run` :
 
 ```shell
+-- 使用 poetry run
 poetry run python your_script.py
-```
-
-激活虚拟环境：
-
-```shell
+-- 激活虚拟环境
 poetry shell
 ```
 
-#### 安装依赖项
+安装依赖项
 
 ```shell
 poetry install
