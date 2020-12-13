@@ -530,7 +530,78 @@ $ git fetch pb
 当你想分享你的项目时，必须将其推送到上游。这个命令很简单：`git push <remote> <branch>` 。当你想要将 `main` 分支推送到 `origin` 服务器时 ( 再次说明，克隆时通常会自动帮你设置好那两个名字 ) ，那么运行这个命令就可以将你所做的备份到服务器：
 
 ```shell
-$ git push origin master
+$ git push origin main
 ```
 
 只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。你必须先抓取他们的工作并将其合并进你的工作后才能推送。
+
+### 查看某个远程仓库
+
+ 如果想要查看某一个远程仓库的更多信息，可以使用 `git remote show <remote>` 命令。如果想以一个特定的缩写名运行这个命令，例如 `origin` ，会得到像下面类似的信息：
+
+```shell
+$ git remote show origin
+* remote origin
+  Fetch URL: https://github.com/schacon/ticgit
+  Push  URL: https://github.com/schacon/ticgit
+  HEAD branch: main
+  Remote branches:
+    main                               tracked
+    dev-branch                         tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (up to date)
+```
+
+它同样会列出远程仓库的 URL 与跟踪分支的信息。这些信息非常有用，它告诉你正处于 `main` 分支，并且如果运行 `git pull` ，就会抓取所有的远程引用，然后将远程 `main` 分支合并到本地 `main` 分支。
+
+这是一个经常遇到的简单例子。 如果你是 Git 的重度使用者，那么还可以通过 `git remote show` 看到更多的信息。
+
+```shell
+$ git remote show origin
+* remote origin
+  URL: https://github.com/my-org/complex-project
+  Fetch URL: https://github.com/my-org/complex-project
+  Push  URL: https://github.com/my-org/complex-project
+  HEAD branch: main
+  Remote branches:
+    main                           tracked
+    dev-branch                     tracked
+    markdown-strip                 tracked
+    issue-43                       new (next fetch will store in remotes/origin)
+    issue-45                       new (next fetch will store in remotes/origin)
+    refs/remotes/origin/issue-11   stale (use 'git remote prune' to remove)
+  Local branches configured for 'git pull':
+    dev-branch merges with remote dev-branch
+    main       merges with remote main
+  Local refs configured for 'git push':
+    dev-branch        pushes to dev-branch                     (up to date)
+    markdown-strip    pushes to markdown-strip                 (up to date)
+    main              pushes to main                           (up to date)
+```
+
+这个命令列出了当你在特定的分支上执行 `git push` 会自动地推送到哪一个远程分支。它也同样地列出了哪些远程分支不在你的本地，哪些远程分支已经从服务器上移除了，还有当你执行 `git pull` 时哪些本地分支可以与它跟踪的远程分支自动合并。
+
+### 远程仓库的重命名与移除
+
+你可以运行 `git remote rename` 来修改一个远程仓库的简写名。
+
+```shell
+$ git remote rename pb paul
+$ git remote
+origin
+paul
+```
+
+值得注意的是这同样也会修改你所有远程跟踪的分支名字。那些过去引用 `pb/main` 的现在会引用 `paul/main` 。
+
+如果因为一些原因想要移除一个远程仓库 ( 你已经从服务器上搬走了或不再想使用某一个特定的镜像了 ) ，又或者某一个贡献者不再贡献了，可以使用 `git remote remove` 或 `git remote rm` ：
+
+```shell
+$ git remote remove paul
+$ git remote
+origin
+```
+
+一旦你使用这种方式删除了一个远程仓库，那么所有和这个远程仓库相关的远程跟踪分支以及配置信息也会一起被删除。
