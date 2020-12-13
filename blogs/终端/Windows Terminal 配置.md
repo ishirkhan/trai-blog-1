@@ -1,5 +1,7 @@
 # PowerShell 配置
 
+## 安装
+
 1. 下载 Windows Tierminal
 2. 下载 ColorTool 工具
 3. 下载 PowerShell
