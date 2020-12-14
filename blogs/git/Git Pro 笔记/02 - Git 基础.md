@@ -566,12 +566,12 @@ $ git remote show origin
   Push  URL: https://github.com/my-org/complex-project
   HEAD branch: main
   Remote branches:
-    main                           tracked
-    dev-branch                     tracked
-    markdown-strip                 tracked
-    issue-43                       new (next fetch will store in remotes/origin)
-    issue-45                       new (next fetch will store in remotes/origin)
-    refs/remotes/origin/issue-11   stale (use 'git remote prune' to remove)
+    main                          tracked
+    dev-branch                    tracked
+    markdown-strip                tracked
+    issue-43                      new (next fetch will store in remotes/origin)
+    issue-45                      new (next fetch will store in remotes/origin)
+    refs/remotes/origin/issue-11  stale (use 'git remote prune' to remove)
   Local branches configured for 'git pull':
     dev-branch merges with remote dev-branch
     main       merges with remote main
@@ -605,3 +605,190 @@ origin
 ```
 
 一旦你使用这种方式删除了一个远程仓库，那么所有和这个远程仓库相关的远程跟踪分支以及配置信息也会一起被删除。
+
+## 打标签
+
+Git 可以给历史中的某一个提交打上标签，以示重要。比较有代表性的是人们会使用这个功能来标记发布结点 ( v1.0 等等 ) 。
+
+### 列出标签
+
+在 Git 中列出已有的标签非常简单，只需要输入 `git tag` ( 可带上可选的 `-l` 选项 `--list` ) ：
+
+```shell
+$ git tag
+v1.0
+v2.0
+```
+
+你也可以按照特定的模式查找标签。例如，如果只对 1.8.5 系列感兴趣，可以运行：
+
+```shell
+$ git tag -l "v1.8.5*"
+v1.8.5
+v1.8.5-rc0
+v1.8.5-rc1
+v1.8.5-rc2
+v1.8.5-rc3
+v1.8.5.1
+v1.8.5.2
+v1.8.5.3
+v1.8.5.4
+v1.8.5.5
+```
+
+> <font color=red>**按照通配符列出标签需要** `-l` **或** `--list` **选项**。</font>
+
+### 创建标签
+
+Git 支持两种标签：轻量标签 ( lightweight ) 与附注标签 ( annotated ) 。
+
+轻量标签很像一个不会改变的分支，它只是某个特定提交的引用。
+
+而附注标签是存储在 Git 数据库中的一个完整对象，它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard ( GPG ) 名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。但是如果你只是想用一个临时的标签，或者因为某些原因不想要保存这些信息，那么也可以用轻量标签。
+
+### 附注标签
+
+在 Git 中创建附注标签十分简单。最简单的方式是当你在运行 `tag` 命令时指定 `-a` 选项：
+
+```shell
+$ git tag -a v1.4 -m "my version 1.4"
+$ git tag
+v0.1
+v1.3
+v1.4
+```
+
+通过使用 `git show` 命令可以看到标签信息和与之对应的提交信息。输出会显示打标签者的信息、打标签的日期时间、附注信息，然后显示具体的提交信息。
+
+### 轻量标签
+
+另一种给提交打标签的方式是使用轻量标签。轻量标签本质上是将提交校验和存储到一个文件中，没有保存任何其他信息。创建轻量标签，不需要使用 `-a`、`-s` 或 `-m` 选项，只需要提供标签名字：
+
+```shell
+$ git tag v1.4-lw
+```
+
+这时，如果在标签上运行 `git show` ，你不会看到额外的标签信息。命令只会显示出提交信息。
+
+### 后期打标签
+
+你也可以对过去的提交打标签。假设提交历史是这样的：
+
+```shell
+$ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+a6b4c97498bd301d84096da251c98a07c7723e65 beginning write support
+0d52aaab4479697da7686c15f77a3d64d9165190 one more thing
+6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch 'experiment'
+0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc added a commit function
+4682c3261057305bdd616e23b64b0857d832627b added a todo file
+166ae0c4d3f420721acbb115cc33848dfcc2121a started write support
+9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile
+964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo
+8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme
+```
+
+现在，假设在 v1.2 时你忘记给项目打标签，也就是在 “updated rakefile” 提交。你可以在之后补上标签。要在那个提交上打标签，你需要在命令的末尾指定提交的校验和 ( 或部分校验和 ) ：
+
+```shell
+$ git tag -a v1.2 9fceb02
+```
+
+### 共享标签
+
+默认情况下，`git push` 命令并不会传送标签到远程仓库服务器上。在创建完标签后你必须显式地推送标签到共享服务器上。这个过程就像共享远程分支一样，你可以运行 `git push origin <tagname>` 。
+
+```shell
+$ git push origin v1.5
+```
+
+如果想要一次性推送很多标签，也可以使用带有 `--tags` 选项的 `git push` 命令。这将会把所有不在远程仓库服务器上的标签全部传送到那里。
+
+```shell
+$ git push origin --tags
+```
+
+现在，当其他人从仓库中克隆或拉取，他们也能得到你的那些标签。
+
+### 删除标签
+
+要删除掉你本地仓库上的标签，可以使用命令 `git tag -d <tagname>` 。
+
+```shell
+$ git tag -d v1.4-lw
+```
+
+注意上述命令并不会从任何远程仓库中移除这个标签，你必须用 `git push <remote> :refs/tags/<tagname>` 来更新你的远程仓库：
+
+1. **`git push <remote> :refs/tags/<tagname>`**
+
+   将冒号前面的空值推送到远程标签名，从而高效地删除它。
+
+2. **`git push origin --delete <tagname>`**
+
+   更直观的删除远程标签的方式。
+
+### 检出标签
+
+如果你想查看某个标签所指向的文件版本，可以使用 `git checkout` 命令，虽然这会使你的仓库处于 “分离头指针 ( detached HEAD ) ” 的状态，这个状态有些不好的副作用。
+
+在 “分离头指针” 状态下，如果你做了某些更改然后提交它们，标签不会发生变化，但你的新提交将不属于任何分支，并且将无法访问，除非通过确切的提交哈希才能访问。因此，如果你需要进行更改，比如你要修复旧版本中的错误，那么通常需要创建一个新分支：
+
+```shell
+$ git checkout -b version2 v2.0.0
+Switched to a new branch 'version2'
+```
+
+如果在这之后又进行了一次提交，`version2` 分支就会因为这个改动向前移动，此时它就会和 `v2.0.0` 标签稍微有些不同，这时就要当心了。
+
+## Git 别名
+
+Git 并不会在你输入部分命令时自动推断出你想要的命令。如果不想每次都输入完整的 Git 命令，可以通过 `git config` 文件来轻松地为每一个命令设置一个别名。这里有一些例子你可以试试：
+
+```shell
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+```
+
+这意味着，当要输入 `git commit` 时，只需要输入 `git ci` 。
+
+在创建你认为应该存在的命令时这个技术会很有用。例如，为了解决取消暂存文件的易用性问题，可以向 Git 中添加你自己的取消暂存别名：
+
+```shell
+$ git config --global alias.unstage 'reset HEAD --'
+```
+
+这会使下面的两个命令等价：
+
+```shell
+$ git unstage fileA
+$ git reset HEAD -- fileA
+```
+
+这样看起来更清楚一些。通常也会添加一个 `last` 命令，像这样：
+
+```shell
+$ git config --global alias.last 'log -1 HEAD'
+```
+
+这样，可以轻松地看到最后一次提交：
+
+```shell
+$ git last
+commit 66938dae3329c7aebe598c2246a8e6af90d04646
+Author: Josh Goebel <dreamer3@example.com>
+Date:   Tue Aug 26 19:48:51 2008 +0800
+
+    test for current head
+
+    Signed-off-by: Scott Chacon <schacon@example.com>
+```
+
+然而，你可能想要执行外部命令，而不是一个 Git 子命令。如果是那样的话，可以在命令前面加入 `!` 符号。如果你自己要写一些与 Git 仓库协作的工具的话，那会很有用。我们现在演示将 `git visual` 定义为 `gitk` 的别名：
+
+```shell
+$ git config --global alias.visual '!gitk'
+```
+
