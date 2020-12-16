@@ -4,3 +4,4 @@
 
 搜索快捷键：*Highlight Word at caret* ，右键，选添加鼠标快捷键，设置为：**按钮1单击** 。
 
+设置颜色：设置 -> 编辑器 -> 颜色和字体 -> BrowseWordAtCaret。
